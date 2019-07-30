@@ -87,7 +87,8 @@ def _fix_config_impl(ctx):
         inputs = [input],
         outputs = [output],
         progress_message = "Configuring %s" % input.short_path,
-        command = "perl -pe '%s' < %s > %s" % (script, input.path, output.path)
+        command = "perl -pe '%s' < %s > %s" % (script, input.path, output.path),
+        use_default_shell_env = True
     )
 
 fix_config_rule = rule(
